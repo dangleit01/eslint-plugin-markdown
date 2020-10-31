@@ -3,8 +3,8 @@
 The `@typescript-eslint` parser and the `recommended` config's rules will work in `ts` code blocks. However, [type-aware rules](https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/TYPED_LINTING.md) will not work because the code blocks are not part of a compilable `tsconfig.json` project.
 
 ```ts
-function hello(name: String) {
-    console.log(`Hello, ${name}!`);
+function hello(name: string) {
+    console.log(`Hello,${name}!`);
 }
 
 hello(42 as any);
@@ -23,3 +23,19 @@ eslint-plugin-markdown/examples/typescript/README.md
 ✖ 2 problems (1 error, 1 warning)
   1 error and 0 warnings potentially fixable with the `--fix` option.
 ```
+
+# To fix 
+
+$npm test -- --fix
+
+# To fix by add script in package.json
+
+
+"scripts": {
+    "test": "eslint .",
+    "lint": "eslint --fix ."
+  },
+
+$npm run lint
+
+#To fix by config 
